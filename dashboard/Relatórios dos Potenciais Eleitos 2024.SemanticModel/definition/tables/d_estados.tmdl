@@ -1,0 +1,84 @@
+table d_estados
+	lineageTag: 80544b96-4765-4629-944d-03c855eec253
+
+	column uf
+		dataType: string
+		lineageTag: 3bd249b8-d9c8-4de0-83aa-e67d78fdd287
+		summarizeBy: none
+		sourceColumn: uf
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome
+		dataType: string
+		lineageTag: 6a6782db-d067-41b2-9c78-e5b3591e1ec5
+		summarizeBy: none
+		sourceColumn: nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column teto_deputado_federal
+		dataType: double
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 2fda641a-4241-467a-9a1e-d4ec3b93460f
+		summarizeBy: sum
+		sourceColumn: teto_deputado_federal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column teto_deputado_estadual
+		dataType: double
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 50452797-054f-4563-96a0-b5da8d78366e
+		summarizeBy: sum
+		sourceColumn: teto_deputado_estadual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column votos_corte_deputado_estadual-distrital
+		dataType: int64
+		formatString: #,0
+		lineageTag: 5a4e14b0-3668-4eed-b0ca-9a4629732b90
+		summarizeBy: sum
+		sourceColumn: votos_corte_deputado_estadual-distrital
+
+		annotation SummarizationSetBy = Automatic
+
+	column votos_corte_deputado_federal
+		dataType: int64
+		formatString: #,0
+		lineageTag: 72a27509-d5ea-4b7b-910e-d31e3213d976
+		summarizeBy: sum
+		sourceColumn: votos_corte_deputado_federal
+
+		annotation SummarizationSetBy = Automatic
+
+	column tt_teto_gastos
+		dataType: double
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 62182125-d73a-4d99-ae6c-e8a081dd87f4
+		summarizeBy: sum
+		sourceColumn: tt_teto_gastos
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	partition d_estados = m
+		mode: import
+		queryGroup: 'Tabelas Dimensão'
+		source =
+				let
+				    Arquivo = CaminhoDados & "\d_estados.parquet",
+				    Fonte = Parquet.Document(File.Contents(Arquivo))
+				in
+				    Fonte
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,429 @@
+table medidas
+	lineageTag: 7437cc7b-7363-40ac-a0d6-de204cf2d2ae
+
+	measure 'Investimento Partido D' =
+			CALCULATE(
+			    SUM(f_partido_distribuicao_candidato[valor]),
+			    FILTER(
+			        f_partido_distribuicao_candidato,
+			        f_partido_distribuicao_candidato[sigla]=[0. partido selecionado])
+			)
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		displayFolder: Dados
+		lineageTag: 4ac46af1-5e23-4e50-9fec-82d021d32637
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Votos Obtidos' =
+			
+			CALCULATE(SUM(f_candidato[tt_votos_definitivos]))
+		formatString: #,0
+		displayFolder: Dados
+		lineageTag: 88098e0e-b1e2-4ed2-9a9f-6f1b88c277e4
+
+	measure 'Obtidos vs Prefeito Eleito' =
+			
+			var d = CALCULATE(SUM(d_municipio[votos_prefeito_eleito]))
+			RETURN
+			   DIVIDE([Votos Obtidos],d)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Métricas
+		lineageTag: 764f0cd8-e366-4baf-8a19-64a9df4641b8
+
+	measure 'Obtidos vs Quociente Eleitoral' =
+			
+			var d = CALCULATE(SUM(d_municipio[quociente_eleitoral]))
+			RETURN
+			   DIVIDE([Votos Obtidos],d)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Métricas
+		lineageTag: 63c8db14-4d9c-4b6a-af88-84d5be25784b
+
+	measure 'Qtd. Candidatos' = CALCULATE(DISTINCTCOUNT(f_candidato[sq_candidato]))+0
+		formatString: #,0
+		displayFolder: Cartões
+		lineageTag: f779a587-61be-452b-861c-76cbc7c01a16
+
+	measure 'Qtd. Candidatos Sem Investimento' = CALCULATE(DISTINCTCOUNT(f_candidato[sq_candidato]),f_candidato[investimento]="Não")+0
+		formatString: #,0
+		displayFolder: Cartões
+		lineageTag: 618fb7b2-5f07-40df-a782-c4d6fe134b53
+
+	measure 'Presença de Candidatos à Observar 2022' =
+			
+			VAR PP = CALCULATE(DISTINCTCOUNT(f_candidato_2022[sq_candidato]), f_candidato_2022[categoria_candidatos]="Potencial Eleito") + CALCULATE(DISTINCTCOUNT(f_candidato_2022[sq_candidato]),f_candidato_2022[categoria_candidatos]="Potencial Eleito")
+			VAR PD = CALCULATE(DISTINCTCOUNT(f_candidato_2022[sq_candidato]), f_candidato_2022[categoria_candidatos]="Candidato Desafiante") + CALCULATE(DISTINCTCOUNT(f_candidato_2022[sq_candidato]), f_candidato_2022[categoria_candidatos]="Possível Desafiante")
+			RETURN
+			IF(AND(PP>0,PP>PD),
+			    2,
+			    IF(OR(PD>0,PD>=PP),
+			        1,0
+			    ))
+		formatString: 0
+		displayFolder: Mapas
+		lineageTag: 9ba48bc2-a8c9-4af0-bb85-c2fd9422a21f
+
+	measure 'Possui Investimento' =
+			
+			var r = CALCULATE(DISTINCTCOUNT(f_candidato[sq_candidato]),f_candidato[investimento]>0)
+			RETURN
+			IF(r>0,"Sim", "Não")
+		displayFolder: Dados
+		lineageTag: b23a680f-f12c-48a3-b912-cea308106461
+
+	measure 'Nome Município' = CALCULATE(SELECTEDVALUE(d_municipio[nome]))
+		displayFolder: ToolTips
+		lineageTag: c5eac4ed-de94-40e3-9562-d8d6ba7c5bc4
+
+	measure 'candidatos potenciais eleitos' =
+			
+			VAR PP = CALCULATE(DISTINCTCOUNT(f_candidato[sq_candidato]), f_candidato[categoria_candidatos]="Potencial Eleito")+0
+			VAR VP = CALCULATE(DISTINCTCOUNT(f_candidato[sq_candidato]), f_candidato[categoria_candidatos]="Potencial Eleito")+0
+			RETURN
+			pp+VP
+		formatString: 0
+		displayFolder: ToolTips
+		lineageTag: 4a39ad0d-9bc2-4fe1-8132-9c6f7b2b9197
+
+	measure 'candidatos desafiantes' =
+			
+			VAR PD = CALCULATE(DISTINCTCOUNT(f_candidato[sq_candidato]), f_candidato[categoria_candidatos]="Candidato Desafiante")+0
+			VAR VD = CALCULATE(DISTINCTCOUNT(f_candidato[sq_candidato]), f_candidato[categoria_candidatos]="Possível Desafiante")+0
+			RETURN
+			pd+Vd
+		formatString: 0
+		displayFolder: ToolTips
+		lineageTag: 670f4f2d-6b3b-4ad8-bc07-db1e82d91ebb
+
+	measure 'Votos Obtidos C' = CALCULATE(SUM(f_candidato[tt_votos_definitivos]))+0
+		formatString: #,0
+		displayFolder: Cartões
+		lineageTag: e1970c01-7057-4669-bbd6-5cc016325d71
+
+	measure 'Investimento Partido' =
+			CALCULATE(
+			    SUM(f_partido_distribuicao_candidato[valor])
+			)+0
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: Cartões
+		lineageTag: 6a6006f2-2fc5-4e47-a5e4-2b30f4d4ac24
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Obtidos vs Corte Vereador' =
+			
+			var d = CALCULATE(SUM(d_municipio[votos_corte_vereador]))
+			RETURN
+			   DIVIDE([Votos Obtidos],d)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Métricas
+		lineageTag: 47e145f5-d028-4329-a4fc-685a32fdef7e
+
+	measure 'Votos Obtidos vs Eleitorado' =
+			
+			var e = CALCULATE(SUM(d_municipio[qt_eleitor]))
+			RETURN
+			DIVIDE([Votos Obtidos],E,0)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: ToolTips
+		lineageTag: cec1f546-13f0-40e3-b033-046b03990363
+
+	measure '0. partido selecionado' = SELECTEDVALUE(f_candidato[sg_partido])
+		displayFolder: ToolTips
+		lineageTag: e5a16499-da6f-4fbe-b675-69794ae67c21
+
+	measure 'Investimento Partido Chapa Vereadores' = ```
+			
+			    CALCULATE(
+			        SUM(f_candidato_suporte[investimento]),
+			        FILTER(
+			            f_candidato_suporte,
+			            f_candidato_suporte[sg_partido]=[0. partido selecionado]
+			            && f_candidato_suporte[sg_ue]=[0. cod. município selecionado]
+			            && f_candidato_suporte[ds_cargo]="Vereador")
+			    )
+			```
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: ToolTips
+		lineageTag: abaaa197-0102-4e3e-94a8-088318532305
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '0. cod. município selecionado' = SELECTEDVALUE(f_candidato[sg_ue])
+		formatString: 0
+		displayFolder: ToolTips
+		lineageTag: a647869d-fb71-482e-98b7-5782c79bf607
+
+	measure 'Investimento Partido Total' = ```
+			
+			    CALCULATE(
+			        SUM(f_candidato_suporte[investimento]),
+			        FILTER(
+			            f_candidato_suporte,
+			            f_candidato_suporte[sg_partido]=[0. partido selecionado]
+			            && f_candidato_suporte[sg_ue]=[0. cod. município selecionado]
+			    ))
+			```
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: ToolTips
+		lineageTag: 004f1a3a-3a88-435a-aaa2-a246b5c586ec
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Vereadores da Chapa' =
+			
+			var p = IF([0. partido selecionado]=SELECTEDVALUE(f_candidato_suporte[sg_partido]),1,0)
+			var c = IF([0. cod. município selecionado]=SELECTEDVALUE(f_candidato_suporte[sg_ue]),1,0)
+			RETURN p+c
+		formatString: 0
+		displayFolder: ToolTips
+		lineageTag: 6ca27821-772b-4de7-b16b-c05355c3f518
+
+	measure 'Vereador Selecionado' = IF(SELECTEDVALUE(f_candidato[sq_candidato])=SELECTEDVALUE(f_candidato_suporte[sq_candidato]),1,0)
+		formatString: 0
+		displayFolder: ToolTips
+		lineageTag: 5a1e5c0d-85fa-4e5b-a7ed-aa8b8a293ce7
+
+	measure teto_gastos =
+			
+			var c = SELECTEDVALUE(f_candidato[ds_cargo])
+			var f = SELECTEDVALUE(f_candidato[fase])
+			
+			RETURN
+			SWITCH(TRUE(),
+			    c="Vereador",CALCULATE(SUM(d_municipio[teto_gastos_vereador])),
+			    c="Prefeito" && f="Primeiro Turno",CALCULATE(SUM(d_municipio[teto_gastos_prefeito_1t])),
+			    c="Prefeito" && f="Segundo Turno",CALCULATE(SUM(d_municipio[teto_gastos_prefeito_1t]))+CALCULATE(SUM(d_municipio[teto_gastos_prefeito_2t]))
+			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: Dados
+		lineageTag: dd5fe1e9-93cc-42fa-a812-fce464811542
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Ranking Investimento Tooltip' =
+			RANKX(
+			    ALLSELECTED(f_candidato_suporte),
+			    CALCULATE(SUM(f_candidato_suporte[investimento])),
+			    ,
+			    DESC,
+			    DENSE
+			)
+		formatString: 0
+		displayFolder: ToolTips
+		lineageTag: 741512ae-3498-49f6-b8b0-08f5677143d0
+
+	measure 'Qtd. Candidatos 2022' = CALCULATE(DISTINCTCOUNT(f_candidato_2022[sq_candidato]))+0
+		formatString: #,0
+		displayFolder: Cartões
+		lineageTag: 1c091c6c-f7df-4631-b6f8-6a4f274b5d75
+
+	measure 'Investimento Partido 2022' =
+			CALCULATE(
+			    SUM(f_partido_distribuicao_candidato_2022[valor])
+			)+0
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		displayFolder: Cartões
+		lineageTag: a0309481-5c66-4e2c-9249-382ffa55e395
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Votos Obtidos 2022 C' = CALCULATE(SUM(f_candidato_2022[qt_votos_nom_validos]))+0
+		formatString: #,0
+		displayFolder: Cartões
+		lineageTag: d028bb68-9a26-460b-8db9-03cf35017568
+
+	measure 'Investimento Partido 2022 D' =
+			CALCULATE(
+			    SUM(f_partido_distribuicao_candidato_2022[valor]),
+			    FILTER(
+			        f_partido_distribuicao_candidato_2022,
+			        f_partido_distribuicao_candidato_2022[sigla]=[0. partido selecionado 2022]))
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: Dados
+		lineageTag: 053d5764-eb34-40de-91fe-f7489e7debbe
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Qtd. Candidatos Sem Investimento 2022' = CALCULATE(DISTINCTCOUNT(f_candidato_2022[sq_candidato]),f_candidato_2022[investimento]="Não")+0
+		formatString: #,0
+		displayFolder: Cartões
+		lineageTag: ff99b2fa-e7c5-4a9d-8736-84087c2b3c10
+
+	measure 'Votos Obtidos 2022' =
+			
+			CALCULATE(SUM(f_candidato_2022[qt_votos_nom_validos]))
+		formatString: #,0
+		displayFolder: Cartões
+		lineageTag: 2c99626d-1fa2-4841-b652-df303a209f71
+
+	measure 'Obtidos vs Corte Deputado Estadual/Distrital' =
+			
+			var d = CALCULATE(SUM(d_estados[votos_corte_deputado_estadual-distrital]))
+			RETURN
+			   DIVIDE([Votos Obtidos 2022],d)
+		formatString: #,0.00%;-#,0.00%;#,0.00%
+		displayFolder: Métricas
+		lineageTag: 044a48a7-6d80-4946-9572-977114181e4d
+
+	measure 'Obtidos vs Corte Deputado Federal' =
+			
+			var d = CALCULATE(SUM(d_estados[votos_corte_deputado_federal]))
+			RETURN
+			   DIVIDE([Votos Obtidos 2022],d)
+		formatString: #,0.00%;-#,0.00%;#,0.00%
+		displayFolder: Métricas
+		lineageTag: a6d66bde-0536-4b41-b215-13324a23ba07
+
+	measure '0. partido selecionado 2022' = SELECTEDVALUE(f_candidato_2022[sg_partido])
+		displayFolder: ToolTips
+		lineageTag: ded41c19-b69d-4dcb-8a88-4971a32849a3
+
+	measure 'candidatos potenciais eleitos 2022' =
+			
+			CALCULATE(DISTINCTCOUNT(f_candidato_2022[sq_candidato]), f_candidato_2022[categoria_candidatos]="Potencial Eleito")+0
+		formatString: #,0
+		displayFolder: ToolTips
+		lineageTag: 0cc584e7-b19c-4c47-87f8-214ca8a54f83
+
+	measure 'candidatos desafiantes 2022' = ```
+			
+			CALCULATE(DISTINCTCOUNT(f_candidato_2022[sq_candidato]), f_candidato_2022[categoria_candidatos]="Candidato Desafiante")+0
+			
+			```
+		formatString: 0
+		displayFolder: ToolTips
+		lineageTag: aa974f64-37ff-46c3-8481-45826648e061
+
+	measure 'Presença de Candidatos à Observar' =
+			
+			VAR PP = CALCULATE(DISTINCTCOUNT(f_candidato[sq_candidato]), f_candidato[categoria_candidatos]="Potencial Eleito") + CALCULATE(DISTINCTCOUNT(f_candidato[sq_candidato]),f_candidato[categoria_candidatos]="Potencial Eleito")
+			VAR PD = CALCULATE(DISTINCTCOUNT(f_candidato[sq_candidato]), f_candidato[categoria_candidatos]="Candidato Desafiante") + CALCULATE(DISTINCTCOUNT(f_candidato[sq_candidato]), f_candidato[categoria_candidatos]="Possível Desafiante")
+			RETURN
+			IF(AND(PP>0,PP>PD),
+			    2,
+			    IF(OR(PD>0,PD>=PP),
+			        1,0
+			    ))
+		formatString: 0
+		displayFolder: Mapas
+		lineageTag: 4001bfb8-0cba-4cd4-af1f-0c61b98fd193
+
+	measure 'Categoria/Situação Candidatos 2022' =
+			
+			VAR R = SELECTEDVALUE(f_candidato_2022[categoria_candidatos])
+			VAR I = SELECTEDVALUE(f_candidato_2022[investimento])
+			
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        I="Não",1,
+			        R="Eleito",2,
+			        0
+			    )
+		formatString: 0
+		lineageTag: 35549150-48e7-4e55-b21c-7da5041e3163
+
+	measure 'Categoria/Situação Candidatos 2024' =
+			
+			VAR R = SELECTEDVALUE(f_candidato[categoria_candidatos])
+			VAR I = SELECTEDVALUE(f_candidato[investimento])
+			
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        I="Não",1,
+			        R="Eleito",2,
+			        0
+			    )
+		formatString: 0
+		lineageTag: 5b85f6c5-2f70-48be-b7d5-6cf06298b02f
+
+	measure 'TT.Estado Selecionado' = CALCULATE(SELECTEDVALUE(d_estados[nome]))
+		lineageTag: 4b286a92-0b4a-4457-a774-30b8908e8a59
+
+	measure 'TT.Votos Obtidos 22 vs Eleitorado' =
+			
+			var e = CALCULATE(SUM(d_municipio[qt_eleitor]))
+			RETURN
+			DIVIDE([Votos Obtidos 2022],E,0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c2d43cf2-5f1b-4b62-9815-c6cd62d7184e
+
+	measure 'Investimento Partido Chapa 2022' = ```
+			
+			    CALCULATE(
+			        SUM(f_candidato_2022_suporte[investimento]),
+			        FILTER(
+			            f_candidato_2022_suporte,
+			            f_candidato_2022_suporte[sg_partido]=[0. partido selecionado 2022]
+			            && f_candidato_2022_suporte[sg_uf]=[TT.Sigla Estado Selecionad]
+			            && f_candidato_2022_suporte[ds_cargo]=[TT.cargo selecionado 2022])
+			    )
+			```
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		lineageTag: 98e97b12-2dc3-4236-9ed8-014b3e4a07a4
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Investimento Partido Total 2022' = ```
+			
+			    CALCULATE(
+			        SUM(f_candidato_2022_suporte[investimento]),
+			        FILTER(
+			            f_candidato_2022_suporte,
+			            f_candidato_2022_suporte[sg_partido]=[0. partido selecionado 2022]
+			            && f_candidato_2022_suporte[sg_uf]=[TT.Sigla Estado Selecionad]
+			    ))
+			```
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: c6efac86-80cf-43e5-9d65-833368f82b87
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'TT.cargo selecionado 2022' = CALCULATE(SELECTEDVALUE(f_candidato_2022[ds_cargo]))
+		lineageTag: af2f158c-0a56-4591-810f-b54de11cffc5
+
+	measure 'Deputados da Chapa' =
+			
+			var p = IF([0. partido selecionado 2022]=SELECTEDVALUE(f_candidato_2022_suporte[sg_partido]),1,0)
+			var u = IF([TT.Sigla Estado Selecionad]=SELECTEDVALUE(f_candidato_2022_suporte[sg_uf]),1,0)
+			var c = IF([TT.cargo selecionado 2022]=SELECTEDVALUE(f_candidato_2022_suporte[ds_cargo]),1,0)
+			RETURN p+c+u
+		formatString: 0
+		lineageTag: 68015b15-b1e2-4897-a2cb-766009fe2ad6
+
+	measure 'Deputado Selecionado' = IF(SELECTEDVALUE(f_candidato_2022[sq_candidato])=SELECTEDVALUE(f_candidato_2022_suporte[sq_candidato]),1,0)
+		formatString: 0
+		lineageTag: 2fd799b7-e338-4f26-8bc5-d8635019739d
+
+	measure 'Ranking Investimento Deputados Tooltip' =
+			RANKX(
+			    ALLSELECTED(f_candidato_2022_suporte),
+			    CALCULATE(SUM(f_candidato_2022_suporte[investimento])),
+			    ,
+			    DESC,
+			    DENSE
+			)
+		formatString: 0
+		lineageTag: a2f28dfa-4c71-40d1-8871-0962de96536e
+
+	measure 'TT.Sigla Estado Selecionad' = CALCULATE(SELECTEDVALUE(d_estados[uf]))
+		lineageTag: 7e2bd4f2-4f8b-4732-9490-2e892b8337be
+
+	partition medidas = m
+		mode: import
+		queryGroup: Medidas
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Coluna 1", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Coluna 1"})
+				    //#"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Coluna 1"})
+				in
+				    #"Colunas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,190 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "d_municipio",
+          "nodeLineageTag": "d15a99c4-e46b-4b6c-96e7-3b3944ab603a",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 461.25889561956819,
+            "y": 969.936245157418
+          },
+          "nodeIndex": "d_partidos",
+          "nodeLineageTag": "819d1afc-5fff-4b0a-8549-10cac0351778",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 681.77964840868412,
+            "y": 5.6373325889555872
+          },
+          "nodeIndex": "f_prestacao_contas",
+          "nodeLineageTag": "cc0e5dd2-5520-4aa3-8992-d49bc1cb9903",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 642.916205059876,
+            "y": 496.48999291571954
+          },
+          "nodeIndex": "f_votacao_candidato",
+          "nodeLineageTag": "a53e36a3-0325-4786-9734-d9ecfc970ba6",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 950.69206196944742,
+            "y": 5.7560128405161493
+          },
+          "nodeIndex": "medidas",
+          "nodeLineageTag": "7437cc7b-7363-40ac-a0d6-de204cf2d2ae",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 342.28440322261173,
+            "y": 2.8186662944777936
+          },
+          "nodeIndex": "f_candidato",
+          "nodeLineageTag": "ed0052c3-9ce7-47f3-a025-50227daf78be",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 182.00000000000011,
+            "y": 350.92366554375417
+          },
+          "nodeIndex": "d_faixa_populacao",
+          "nodeLineageTag": "7888f6c5-a6bf-4730-accc-24a78b6559f6",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1120.5360770430968,
+            "y": 196.43909371370282
+          },
+          "nodeIndex": "f_candidato_suporte",
+          "nodeLineageTag": "a9f6e765-1e86-4fdb-be40-41538165169c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 994.42013119657781,
+            "y": 588.2230501676047
+          },
+          "nodeIndex": "f_partido_distribuicao_candidato",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 549.34910257870922
+          },
+          "nodeIndex": "f_candidato_2022",
+          "nodeLineageTag": "97bbed84-7446-48d1-92de-2084d7c84b93",
+          "size": {
+            "height": 218,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 978.6520519294977
+          },
+          "nodeIndex": "f_partido_distribuicao_candidato_2022",
+          "nodeLineageTag": "bfdf46ab-562a-49bf-950e-0b64af1bed73",
+          "size": {
+            "height": 206,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 282.07904696474856
+          },
+          "nodeIndex": "d_estados",
+          "nodeLineageTag": "80544b96-4765-4629-944d-03c855eec253",
+          "size": {
+            "height": 145,
+            "width": 145
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1139.0790840863428,
+            "y": 843.67171769698427
+          },
+          "nodeIndex": "f_candidato_2022_suporte",
+          "nodeLineageTag": "a4e65c20-4d34-42ec-ac7d-00bcf7044cb8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 13
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 63.287087723233967,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

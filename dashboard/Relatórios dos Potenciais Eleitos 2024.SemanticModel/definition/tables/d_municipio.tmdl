@@ -1,0 +1,178 @@
+table d_municipio
+	lineageTag: d15a99c4-e46b-4b6c-96e7-3b3944ab603a
+
+	column eleicaoId
+		dataType: double
+		formatString: 0
+		lineageTag: 8fdb70b3-1bac-4055-9df6-b11b3c8221a5
+		summarizeBy: count
+		sourceColumn: eleicaoId
+
+		annotation SummarizationSetBy = Automatic
+
+	column cod_tse
+		dataType: int64
+		formatString: 0
+		lineageTag: ee984d96-d811-4fef-bb54-aa78446eb569
+		summarizeBy: none
+		sourceColumn: cod_tse
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome
+		dataType: string
+		lineageTag: b9a684fb-81f4-4c2d-9426-a28956e6fa77
+		summarizeBy: none
+		sourceColumn: nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column capital
+		dataType: int64
+		formatString: 0
+		lineageTag: 857fe1cc-af94-4f85-bed1-0a749edcfd27
+		summarizeBy: sum
+		sourceColumn: capital
+
+		annotation SummarizationSetBy = Automatic
+
+	column uf
+		dataType: string
+		lineageTag: e43a126a-f144-43b8-88d2-765ff2d25f2a
+		summarizeBy: none
+		sourceColumn: uf
+
+		annotation SummarizationSetBy = Automatic
+
+	column cod_ibge
+		dataType: string
+		lineageTag: 5dffacc9-62b2-4716-9a40-7df362d3cdd3
+		summarizeBy: none
+		sourceColumn: cod_ibge
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column qt_eleitor
+		dataType: double
+		formatString: #,0
+		lineageTag: af484c09-ff2e-4b5f-bfa2-9c13e4fcd0ae
+		summarizeBy: sum
+		sourceColumn: qt_eleitor
+
+		annotation SummarizationSetBy = Automatic
+
+	column populacao
+		dataType: double
+		formatString: #,0
+		lineageTag: 83d63146-1105-4325-87e1-7b0df9bd1a58
+		summarizeBy: sum
+		sourceColumn: populacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column regiao
+		dataType: string
+		lineageTag: 07d67932-017e-4d2f-a0f2-85c1a7cb83fb
+		summarizeBy: none
+		sourceColumn: regiao
+
+		annotation SummarizationSetBy = Automatic
+
+	column votos_prefeito_eleito
+		dataType: double
+		formatString: #,0
+		lineageTag: 09ae4769-e008-4227-8f3a-8cbbd28f4b99
+		summarizeBy: sum
+		sourceColumn: votos_prefeito_eleito
+
+		annotation SummarizationSetBy = Automatic
+
+	column quociente_eleitoral
+		dataType: double
+		formatString: #,0
+		lineageTag: 64108b04-3227-4ffd-8033-ff33efa20761
+		summarizeBy: sum
+		sourceColumn: quociente_eleitoral
+
+		annotation SummarizationSetBy = Automatic
+
+	column votos_corte_vereador
+		dataType: double
+		formatString: #,0
+		lineageTag: 5f406f6a-01b4-429b-910d-3b6405a7af68
+		summarizeBy: sum
+		sourceColumn: votos_corte_vereador
+
+		annotation SummarizationSetBy = Automatic
+
+	column cd_populacao
+		dataType: int64
+		formatString: 0
+		lineageTag: eedd13e4-d9b6-4612-8591-37eeb1e06352
+		summarizeBy: none
+		sourceColumn: cd_populacao
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column teto_gastos_vereador
+		dataType: double
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 4fe73aaf-e24b-41ab-943c-ccfe0e40de91
+		summarizeBy: sum
+		sourceColumn: teto_gastos_vereador
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column teto_gastos_prefeito_1t
+		dataType: double
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 13f0a2df-8e8f-4aa6-b869-7e558b6140b0
+		summarizeBy: sum
+		sourceColumn: teto_gastos_prefeito_1t
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column teto_gastos_prefeito_2t
+		dataType: double
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: f2eb678b-e976-4c64-965d-51fcb6f01cbc
+		summarizeBy: sum
+		sourceColumn: teto_gastos_prefeito_2t
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column teto_gastos_tt
+		dataType: double
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 208cdee0-5b07-437e-a7d4-0aab1a395061
+		summarizeBy: sum
+		sourceColumn: teto_gastos_tt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	partition d_municipio = m
+		mode: import
+		queryGroup: 'Tabelas Dimensão'
+		source =
+				let
+				    Arquivo = CaminhoDados & "\d_municipio.parquet",
+				    Fonte = Parquet.Document(File.Contents(Arquivo))
+				in
+				    Fonte
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

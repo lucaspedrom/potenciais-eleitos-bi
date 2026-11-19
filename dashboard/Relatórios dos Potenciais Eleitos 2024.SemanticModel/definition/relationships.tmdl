@@ -1,0 +1,59 @@
+relationship d49b5213-061a-c4f3-0ee8-c48214e93728
+	fromColumn: f_candidato.sg_ue
+	toColumn: d_municipio.cod_tse
+
+relationship 9d12b4b4-4d08-50a5-d279-8ad659bc0987
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: f_candidato.sq_candidato
+	toColumn: f_prestacao_contas.id
+
+relationship 4e180015-45d7-d0d8-dead-c8419fa599fe
+	fromColumn: f_votacao_candidato.sq_candidato
+	toColumn: f_candidato.sq_candidato
+
+relationship da8b4616-e279-e22f-6f8d-2d122ce4c729
+	fromColumn: f_candidato.sg_partido
+	toColumn: d_partidos.sigla
+
+relationship 365b6c18-9608-79a5-f785-6fc5e0f2e11e
+	fromColumn: d_municipio.cd_populacao
+	toColumn: d_faixa_populacao.cd_populacao
+
+relationship AutoDetected_78814378-afc0-45fa-864f-aa510091b5d4
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: f_candidato_suporte.sq_candidato
+	toColumn: f_prestacao_contas.id
+
+relationship c6880be6-de28-318f-94cd-a3d3463abf2d
+	fromColumn: f_partido_distribuicao_candidato.sqcand
+	toColumn: f_candidato.sq_candidato
+
+relationship 469a036d-788f-94e0-56dc-b765ebb757e5
+	fromColumn: f_candidato_2022.sg_partido
+	toColumn: d_partidos.sigla
+
+relationship 08220f33-5fbb-3471-5665-67c4ec4d9841
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: f_partido_distribuicao_candidato_2022.sqcand
+	toColumn: f_candidato_2022.sq_candidato
+
+relationship 64768c20-15ab-e4a7-01ae-ff014253b429
+	crossFilteringBehavior: bothDirections
+	fromColumn: d_municipio.uf
+	toColumn: d_estados.uf
+
+relationship 7864ebbd-5df1-d4de-2d0d-818b44c20a41
+	fromColumn: f_candidato_2022.sg_uf
+	toColumn: d_estados.uf
+
+relationship AutoDetected_4c8166ea-5dce-4d02-9335-22454851cf98
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: f_candidato_2022_suporte.sq_candidato
+	toColumn: f_candidato_2022.sq_candidato
+

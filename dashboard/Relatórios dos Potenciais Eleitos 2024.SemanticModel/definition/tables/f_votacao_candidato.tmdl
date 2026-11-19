@@ -1,0 +1,87 @@
+table f_votacao_candidato
+	lineageTag: a53e36a3-0325-4786-9734-d9ecfc970ba6
+
+	column cd_cargo
+		dataType: int64
+		formatString: 0
+		lineageTag: febca515-31c1-4fb9-9593-00be8e4bf9c8
+		summarizeBy: sum
+		sourceColumn: cd_cargo
+
+		annotation SummarizationSetBy = Automatic
+
+	column nr_turno
+		dataType: int64
+		formatString: 0
+		lineageTag: 72b7b7fe-1ff4-400f-93d4-8aa2fc744ab6
+		summarizeBy: sum
+		sourceColumn: nr_turno
+
+		annotation SummarizationSetBy = Automatic
+
+	column ds_sit_totalizacao
+		dataType: string
+		lineageTag: 602142a6-ee66-4970-9f20-10af6be33d7a
+		summarizeBy: none
+		sourceColumn: ds_sit_totalizacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column sg_ue
+		dataType: int64
+		formatString: 0
+		lineageTag: 51cd424d-fcfd-4edd-a6dc-d944d30db704
+		summarizeBy: sum
+		sourceColumn: sg_ue
+
+		annotation SummarizationSetBy = Automatic
+
+	column sq_candidato
+		dataType: int64
+		formatString: 0
+		lineageTag: 98ba8b9b-534f-4739-b51f-0527ada61374
+		summarizeBy: none
+		sourceColumn: sq_candidato
+
+		annotation SummarizationSetBy = Automatic
+
+	column nm_tipo_destinacao_votos
+		dataType: string
+		lineageTag: 5c7710be-4d94-444c-8fae-9aa8cee75a58
+		summarizeBy: none
+		sourceColumn: nm_tipo_destinacao_votos
+
+		annotation SummarizationSetBy = Automatic
+
+	column qt_votos_nom_validos
+		dataType: int64
+		formatString: #,0
+		lineageTag: 3045df90-bd1f-432e-b515-00ce4ef8e92f
+		summarizeBy: sum
+		sourceColumn: qt_votos_nom_validos
+
+		annotation SummarizationSetBy = Automatic
+
+	column qt_votos_concorrentes
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f029f00-9c4e-48d5-9eba-413c8e80e530
+		summarizeBy: sum
+		sourceColumn: qt_votos_concorrentes
+
+		annotation SummarizationSetBy = Automatic
+
+	partition f_votacao_candidato = m
+		mode: import
+		queryGroup: 'Tabelas Fato'
+		source =
+				let
+				    Arquivo = CaminhoDados & "\f_votacao_candidato.parquet",
+				    Fonte = Parquet.Document(File.Contents(Arquivo))
+				in
+				    Fonte
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,178 @@
+table f_candidato_2022
+	lineageTag: 97bbed84-7446-48d1-92de-2084d7c84b93
+
+	column sg_uf
+		dataType: string
+		lineageTag: 133ac4d9-df70-4961-bdbf-0b5a5b93cc1c
+		summarizeBy: none
+		sourceColumn: sg_uf
+
+		annotation SummarizationSetBy = Automatic
+
+	column ds_cargo
+		dataType: string
+		lineageTag: 9e8e48e0-4fbb-40fb-a7cd-007bad1744d7
+		summarizeBy: none
+		sourceColumn: ds_cargo
+
+		annotation SummarizationSetBy = Automatic
+
+	column nr_candidato
+		dataType: int64
+		formatString: 0
+		lineageTag: bf246c94-d59e-457a-b24d-40e2ca6d9179
+		summarizeBy: sum
+		sourceColumn: nr_candidato
+
+		annotation SummarizationSetBy = Automatic
+
+	column nm_candidato
+		dataType: string
+		lineageTag: fcda1124-2648-494a-85dc-28491f30ceb5
+		summarizeBy: none
+		sourceColumn: nm_candidato
+
+		annotation SummarizationSetBy = Automatic
+
+	column nm_urna_candidato
+		dataType: string
+		lineageTag: af21ad7b-8bce-4cb0-a96e-33a3cfc5b08f
+		summarizeBy: none
+		sourceColumn: nm_urna_candidato
+
+		annotation SummarizationSetBy = Automatic
+
+	column sg_partido
+		dataType: string
+		lineageTag: 10c902f1-c1a0-484d-a0df-621f65d7e99b
+		summarizeBy: none
+		sourceColumn: sg_partido
+
+		annotation SummarizationSetBy = Automatic
+
+	column ds_composicao_coligacao
+		dataType: string
+		lineageTag: 043ca100-913e-4291-a053-46a54d148dc1
+		summarizeBy: none
+		sourceColumn: ds_composicao_coligacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column nr_turno
+		dataType: int64
+		formatString: 0
+		lineageTag: cbe8f917-a5e1-4d2f-a1b8-090d4fcb89f8
+		summarizeBy: sum
+		sourceColumn: nr_turno
+
+		annotation SummarizationSetBy = Automatic
+
+	column ds_sit_totalizacao
+		dataType: string
+		lineageTag: e32b3912-0687-413d-83b6-f7766d33ab44
+		summarizeBy: none
+		sourceColumn: ds_sit_totalizacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column sg_ue
+		dataType: string
+		lineageTag: b5b64a32-2ce7-4dd4-b31d-db3726b0a66a
+		summarizeBy: none
+		sourceColumn: sg_ue
+
+		annotation SummarizationSetBy = Automatic
+
+	column sq_candidato
+		dataType: int64
+		formatString: 0
+		lineageTag: c81a2507-984e-4e10-a4f6-74eb40a6abd7
+		summarizeBy: none
+		sourceColumn: sq_candidato
+
+		annotation SummarizationSetBy = Automatic
+
+	column nm_tipo_destinacao_votos
+		dataType: string
+		lineageTag: 376fa384-4342-4777-ad50-e21606a9cd73
+		summarizeBy: none
+		sourceColumn: nm_tipo_destinacao_votos
+
+		annotation SummarizationSetBy = Automatic
+
+	column sq_eleicao_divulga
+		dataType: int64
+		formatString: 0
+		lineageTag: 25b70a09-18a5-4403-934c-13d4f7f6805a
+		summarizeBy: sum
+		sourceColumn: sq_eleicao_divulga
+
+		annotation SummarizationSetBy = Automatic
+
+	column pc_votos_validos
+		dataType: double
+		lineageTag: 23b5c3bb-5454-4452-b49c-698efb9e590c
+		summarizeBy: sum
+		sourceColumn: pc_votos_validos
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qt_votos_nom_validos
+		dataType: int64
+		formatString: 0
+		lineageTag: b5f1629c-72ed-47c5-9f72-9573a126630d
+		summarizeBy: sum
+		sourceColumn: qt_votos_nom_validos
+
+		annotation SummarizationSetBy = Automatic
+
+	column qt_votos_concorrentes
+		dataType: int64
+		formatString: 0
+		lineageTag: cb7496ac-5211-48c7-8ddb-9e406f03ad21
+		summarizeBy: sum
+		sourceColumn: qt_votos_concorrentes
+
+		annotation SummarizationSetBy = Automatic
+
+	column titulo_eleitor
+		dataType: int64
+		formatString: 0
+		lineageTag: 169cf0f0-b8fb-40af-b4b6-ff97b87d3870
+		summarizeBy: sum
+		sourceColumn: titulo_eleitor
+
+		annotation SummarizationSetBy = Automatic
+
+	column investimento
+		dataType: string
+		lineageTag: 390cc530-de2e-4d41-b496-88f50e7b5b24
+		summarizeBy: none
+		sourceColumn: investimento
+
+		annotation SummarizationSetBy = Automatic
+
+	column categoria_candidatos
+		dataType: string
+		lineageTag: 4172bb32-35b2-458e-9264-6e63a8c6e19e
+		summarizeBy: none
+		sourceColumn: categoria_candidatos
+
+		annotation SummarizationSetBy = Automatic
+
+	partition f_candidato_2022 = m
+		mode: import
+		queryGroup: 'Tabelas Fato'
+		source =
+				let
+				    Arquivo = CaminhoDados & "\f_candidato_2022.parquet",
+				    Fonte = Parquet.Document(File.Contents(Arquivo))
+				in
+				    Fonte
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,36 @@
+table d_faixa_populacao
+	lineageTag: 7888f6c5-a6bf-4730-accc-24a78b6559f6
+
+	column cd_populacao
+		dataType: int64
+		formatString: 0
+		lineageTag: fffedf47-296f-48a0-8fb6-80ed1a7b98ea
+		summarizeBy: none
+		sourceColumn: cd_populacao
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column faixa_populacao
+		dataType: string
+		lineageTag: 3d1b1cee-c73c-448d-9114-b3b97e5f05e1
+		summarizeBy: none
+		sourceColumn: faixa_populacao
+
+		annotation SummarizationSetBy = Automatic
+
+	partition d_faixa_populacao = m
+		mode: import
+		queryGroup: 'Tabelas Dimensão'
+		source =
+				let
+				    Arquivo = CaminhoDados & "\d_faixa_populacao.parquet",
+				    Fonte = Parquet.Document(File.Contents(Arquivo))
+				in
+				    Fonte
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

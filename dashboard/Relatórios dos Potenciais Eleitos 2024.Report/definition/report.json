@@ -1,0 +1,102 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY24SU10",
+      "reportVersionAtImport": {
+        "visual": "1.8.96",
+        "report": "2.0.96",
+        "page": "1.3.96"
+      },
+      "type": "SharedResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "publicCustomVisuals": [
+    "pureVizInfographicC9801BF222134D2D83FA9C41861F3482"
+  ],
+  "resourcePackages": [
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "Mun_BR_0b0013150001055441283.json",
+          "path": "Mun_BR_0b0013150001055441283.json",
+          "type": "Image"
+        },
+        {
+          "name": "Tela_16458079091481388.svg",
+          "path": "Tela_16458079091481388.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Tela_219801594511520193.svg",
+          "path": "Tela_219801594511520193.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Tooltip_Lista2214419585981665795.svg",
+          "path": "Tooltip_Lista2214419585981665795.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Tooltip_Lista3228926534132315.svg",
+          "path": "Tooltip_Lista3228926534132315.svg",
+          "type": "Image"
+        }
+      ]
+    },
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "brazil.states.topo",
+          "path": "Shapemaps/brazil.states.topo.json",
+          "type": "ShapeMap"
+        },
+        {
+          "name": "CY24SU10",
+          "path": "BaseThemes/CY24SU10.json",
+          "type": "BaseTheme"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

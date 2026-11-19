@@ -1,0 +1,968 @@
+table f_prestacao_contas
+	lineageTag: cc0e5dd2-5520-4aa3-8992-d49bc1cb9903
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b745beb-f33f-4d9d-bdab-ba1678d5623f
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column idEleicao
+		dataType: int64
+		formatString: 0
+		lineageTag: e6a0699c-393d-48ca-a53b-fce1aa6c1655
+		summarizeBy: sum
+		sourceColumn: idEleicao
+
+		annotation SummarizationSetBy = Automatic
+
+	column ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 158f2ee5-3bfe-4f36-b347-74954a27a0fd
+		summarizeBy: sum
+		sourceColumn: ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column cod_tse
+		dataType: int64
+		formatString: 0
+		lineageTag: dcc4cdf4-caba-418f-8f73-71847c3cf5d0
+		summarizeBy: sum
+		sourceColumn: cod_tse
+
+		annotation SummarizationSetBy = Automatic
+
+	column sg_uf
+		dataType: string
+		lineageTag: 65f5cca8-b76d-4184-9f67-5540a2e7bd30
+		summarizeBy: none
+		sourceColumn: sg_uf
+
+		annotation SummarizationSetBy = Automatic
+
+	column ds_uf
+		dataType: string
+		lineageTag: 6fdfdd23-dff7-4e0b-b3d2-6ac607f910d3
+		summarizeBy: none
+		sourceColumn: ds_uf
+
+		annotation SummarizationSetBy = Automatic
+
+	column nr_partido
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ae47f57-7672-45a7-abc1-fb3b598949d9
+		summarizeBy: sum
+		sourceColumn: nr_partido
+
+		annotation SummarizationSetBy = Automatic
+
+	column nm_partido
+		dataType: string
+		lineageTag: 96f8fd23-7b78-4389-8a2d-5af375f98f37
+		summarizeBy: none
+		sourceColumn: nm_partido
+
+		annotation SummarizationSetBy = Automatic
+
+	column sg_partido
+		dataType: string
+		lineageTag: fb2475ca-c521-42ce-bc6e-35764f7f657b
+		summarizeBy: none
+		sourceColumn: sg_partido
+
+		annotation SummarizationSetBy = Automatic
+
+	column sg_partido_se
+		dataType: string
+		lineageTag: 5ee5a603-7791-41a2-8ea6-ab654db0f385
+		summarizeBy: none
+		sourceColumn: sg_partido_se
+
+		annotation SummarizationSetBy = Automatic
+
+	column nr_cand
+		dataType: int64
+		formatString: 0
+		lineageTag: fe08a73a-8d2e-49e9-bfcd-c1fbefb8bfbc
+		summarizeBy: sum
+		sourceColumn: nr_cand
+
+		annotation SummarizationSetBy = Automatic
+
+	column nrProcessoPje
+		dataType: double
+		lineageTag: 66d99b47-b12b-43b6-9238-ad0ba1d02398
+		summarizeBy: sum
+		sourceColumn: nrProcessoPje
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tpPrestador
+		dataType: string
+		lineageTag: cb491ed4-d74e-4dc6-9a00-783d3dc26cb0
+		summarizeBy: none
+		sourceColumn: tpPrestador
+
+		annotation SummarizationSetBy = Automatic
+
+	column cnpj_campanha
+		dataType: double
+		lineageTag: 69fbc019-9fa8-4a30-9cfe-18277ea02d09
+		summarizeBy: sum
+		sourceColumn: cnpj_campanha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column idOrgao
+		dataType: double
+		formatString: 0
+		lineageTag: 014c7aa3-d58b-42a9-8075-5966f5335cd4
+		summarizeBy: sum
+		sourceColumn: idOrgao
+
+		annotation SummarizationSetBy = Automatic
+
+	column idPrestador
+		dataType: int64
+		formatString: 0
+		lineageTag: 8893ff3c-1847-4d4f-bcb7-ba9415329858
+		summarizeBy: sum
+		sourceColumn: idPrestador
+
+		annotation SummarizationSetBy = Automatic
+
+	column idPrestadorVice
+		dataType: double
+		formatString: 0
+		lineageTag: 3e2b17bb-1e9f-4a3d-8a36-9f843476fd07
+		summarizeBy: sum
+		sourceColumn: idPrestadorVice
+
+		annotation SummarizationSetBy = Automatic
+
+	column idUltimaEntrega
+		dataType: double
+		formatString: 0
+		lineageTag: 9999624f-9020-43b3-b32a-be180e99b365
+		summarizeBy: sum
+		sourceColumn: idUltimaEntrega
+
+		annotation SummarizationSetBy = Automatic
+
+	column numeroDeControleEntrega
+		dataType: string
+		lineageTag: 75c12002-07a5-4f48-80ae-4ec57b0b6518
+		summarizeBy: none
+		sourceColumn: numeroDeControleEntrega
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataUltimaAtualizacaoContas
+		dataType: string
+		lineageTag: 0c956508-8ea5-4019-9b5f-e04a6c41a6f0
+		summarizeBy: none
+		sourceColumn: dataUltimaAtualizacaoContas
+
+		annotation SummarizationSetBy = Automatic
+
+	column entregaAtual
+		dataType: double
+		lineageTag: 479c5907-1b01-432c-bad6-ff3d73a3bf8c
+		summarizeBy: sum
+		sourceColumn: entregaAtual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_receita_recebida
+		dataType: double
+		lineageTag: 20ce3e38-d56c-448d-8769-0f3cef1285a5
+		summarizeBy: sum
+		sourceColumn: tt_receita_recebida
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qtd_receita_recebida
+		dataType: double
+		formatString: 0
+		lineageTag: 9a0f96cb-89bd-42ac-b528-1a4ff4367612
+		summarizeBy: sum
+		sourceColumn: qtd_receita_recebida
+
+		annotation SummarizationSetBy = Automatic
+
+	column percentualRecebido
+		dataType: double
+		lineageTag: 678ff532-7a07-464e-9163-f45cefebd36e
+		summarizeBy: sum
+		sourceColumn: percentualRecebido
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_receita_financeira
+		dataType: double
+		lineageTag: d7de781c-c7f5-401c-a5a9-566b0c0423e0
+		summarizeBy: sum
+		sourceColumn: tt_receita_financeira
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qtd_receita_financeira
+		dataType: double
+		formatString: 0
+		lineageTag: ed66305d-089e-4549-a4c3-45f17150a842
+		summarizeBy: sum
+		sourceColumn: qtd_receita_financeira
+
+		annotation SummarizationSetBy = Automatic
+
+	column pc_receita_financeira
+		dataType: double
+		lineageTag: b0fd0271-294c-4b53-b77b-85576b4ee5e3
+		summarizeBy: sum
+		sourceColumn: pc_receita_financeira
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_receita_estimada
+		dataType: double
+		lineageTag: 98ab4014-dd26-4636-a6ee-1ce18a23c76d
+		summarizeBy: sum
+		sourceColumn: tt_receita_estimada
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qtd_receita_estimada
+		dataType: double
+		formatString: 0
+		lineageTag: ed563838-676b-46a8-baa3-4a30c3d7aed7
+		summarizeBy: sum
+		sourceColumn: qtd_receita_estimada
+
+		annotation SummarizationSetBy = Automatic
+
+	column pc_receita_estimada
+		dataType: double
+		lineageTag: d1f85e45-b892-40f0-afa3-4c3876cb30c5
+		summarizeBy: sum
+		sourceColumn: pc_receita_estimada
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_receita_pessoa_fisica
+		dataType: double
+		lineageTag: d3532ab5-e9f1-46ea-8771-c3f4d38fc8f8
+		summarizeBy: sum
+		sourceColumn: tt_receita_pessoa_fisica
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qtd_receita_pessoa_fisica
+		dataType: double
+		formatString: 0
+		lineageTag: 3587f0a3-6bc1-479f-bedb-4b58a5431956
+		summarizeBy: sum
+		sourceColumn: qtd_receita_pessoa_fisica
+
+		annotation SummarizationSetBy = Automatic
+
+	column pc_receita_pessoa_fisica
+		dataType: double
+		lineageTag: 1b74ad46-c0b7-48cb-b783-590fbfc339e1
+		summarizeBy: sum
+		sourceColumn: pc_receita_pessoa_fisica
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_receita_pessoa_juridica
+		dataType: double
+		lineageTag: e0578bd6-c362-4b37-946b-8183925d1c26
+		summarizeBy: sum
+		sourceColumn: tt_receita_pessoa_juridica
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qtd_receita_pessoa_juridica
+		dataType: double
+		formatString: 0
+		lineageTag: e86b91ad-b365-4da3-b338-d8b16e96f6b5
+		summarizeBy: sum
+		sourceColumn: qtd_receita_pessoa_juridica
+
+		annotation SummarizationSetBy = Automatic
+
+	column pc_receita_pessoa_juridica
+		dataType: double
+		lineageTag: e527bba8-1685-4dc8-aba4-5d3fa7dcfa09
+		summarizeBy: sum
+		sourceColumn: pc_receita_pessoa_juridica
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_receita_doacao_partido
+		dataType: double
+		lineageTag: 81061a61-c8d3-4f96-b86d-94230c420a5e
+		summarizeBy: sum
+		sourceColumn: tt_receita_doacao_partido
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qtd_receita_doacao_partido
+		dataType: double
+		formatString: 0
+		lineageTag: b39f13e2-ddd4-4a4c-8d5f-3c4652a68d71
+		summarizeBy: sum
+		sourceColumn: qtd_receita_doacao_partido
+
+		annotation SummarizationSetBy = Automatic
+
+	column pc_receita_doacao_partido
+		dataType: double
+		lineageTag: a1a9419a-88c1-45bb-b0e0-1a14d58a0534
+		summarizeBy: sum
+		sourceColumn: pc_receita_doacao_partido
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_receita_internet
+		dataType: double
+		lineageTag: 2fc11fea-765c-477b-a18d-afd562753b20
+		summarizeBy: sum
+		sourceColumn: tt_receita_internet
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qtd_receita_internet
+		dataType: double
+		formatString: 0
+		lineageTag: 3eff86e8-7a06-45d4-bf8a-1cfa8e2c7cc0
+		summarizeBy: sum
+		sourceColumn: qtd_receita_internet
+
+		annotation SummarizationSetBy = Automatic
+
+	column pc_receita_internet
+		dataType: double
+		lineageTag: 468f009e-b6e3-4e3f-b197-73996ec0095b
+		summarizeBy: sum
+		sourceColumn: pc_receita_internet
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_receita_RONI
+		dataType: double
+		lineageTag: 70b2c210-5795-46c1-8f41-d1f694631ebf
+		summarizeBy: sum
+		sourceColumn: tt_receita_RONI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qtd_receita_RONI
+		dataType: double
+		formatString: 0
+		lineageTag: 6dc16963-0f93-418e-a564-d093223720e6
+		summarizeBy: sum
+		sourceColumn: qtd_receita_RONI
+
+		annotation SummarizationSetBy = Automatic
+
+	column pc_receita_RONI
+		dataType: double
+		lineageTag: c4922fac-7980-4ad6-9138-a32ccbed47ac
+		summarizeBy: sum
+		sourceColumn: pc_receita_RONI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_receita_propria
+		dataType: double
+		lineageTag: d221e61b-0b37-4e87-b54e-ce7794886445
+		summarizeBy: sum
+		sourceColumn: tt_receita_propria
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qtd_receita_propria
+		dataType: double
+		formatString: 0
+		lineageTag: 00bbe8e4-a0e1-4d49-a155-d013ef17998f
+		summarizeBy: sum
+		sourceColumn: qtd_receita_propria
+
+		annotation SummarizationSetBy = Automatic
+
+	column pc_receita_propria
+		dataType: double
+		lineageTag: ec419434-92e9-4b71-833c-5b001b8e413c
+		summarizeBy: sum
+		sourceColumn: pc_receita_propria
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_receita_candidatos_terceitos
+		dataType: double
+		lineageTag: d9aa6dc7-731b-4c0c-bfdf-c98a53d4540c
+		summarizeBy: sum
+		sourceColumn: tt_receita_candidatos_terceitos
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qtd_receita_candidatos_terceitos
+		dataType: double
+		formatString: 0
+		lineageTag: 4c88f4ef-abda-44e3-a56a-3b6cb2aa3cce
+		summarizeBy: sum
+		sourceColumn: qtd_receita_candidatos_terceitos
+
+		annotation SummarizationSetBy = Automatic
+
+	column pc_receita_candidatos_terceitos
+		dataType: double
+		lineageTag: 31335f5b-13c7-41eb-a986-e870413322d4
+		summarizeBy: sum
+		sourceColumn: pc_receita_candidatos_terceitos
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_receita_financiamento_coletivo
+		dataType: double
+		lineageTag: 2cab1ce7-0075-4480-87d2-a69a40131fac
+		summarizeBy: sum
+		sourceColumn: tt_receita_financiamento_coletivo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qtd_receita_financiamento_coletivo
+		dataType: double
+		formatString: 0
+		lineageTag: 542f52ec-6fbd-4d6e-827e-d56c8e024b33
+		summarizeBy: sum
+		sourceColumn: qtd_receita_financiamento_coletivo
+
+		annotation SummarizationSetBy = Automatic
+
+	column pc_receita_financiamento_coletivo
+		dataType: double
+		lineageTag: 002c7f36-fb99-4f1c-8d28-214808df5a6c
+		summarizeBy: sum
+		sourceColumn: pc_receita_financiamento_coletivo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column totalDoacaoDevolvida
+		dataType: double
+		lineageTag: 2f98416c-a68f-4ad6-97da-4ef3cc484052
+		summarizeBy: sum
+		sourceColumn: totalDoacaoDevolvida
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qtdDoacaoDevolvida
+		dataType: double
+		formatString: 0
+		lineageTag: 83e6c84d-23cd-46e3-80e8-e31541339720
+		summarizeBy: sum
+		sourceColumn: qtdDoacaoDevolvida
+
+		annotation SummarizationSetBy = Automatic
+
+	column percentualDoacaoDevolvida
+		dataType: double
+		lineageTag: 706177fe-34dd-4363-a111-c1c91ca23126
+		summarizeBy: sum
+		sourceColumn: percentualDoacaoDevolvida
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sq_PrestadorConta
+		dataType: double
+		formatString: 0
+		lineageTag: 83f0c6e9-58e3-4d6a-9959-8c9f425f2cef
+		summarizeBy: sum
+		sourceColumn: sq_PrestadorConta
+
+		annotation SummarizationSetBy = Automatic
+
+	column sq_EntregaPrestacao
+		dataType: double
+		formatString: 0
+		lineageTag: 8f9b2ad0-11c4-4254-9e51-c5aa91977513
+		summarizeBy: sum
+		sourceColumn: sq_EntregaPrestacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column tt_receita_comercializacao
+		dataType: double
+		lineageTag: dcbe2ed3-3099-444b-9208-53d655f90699
+		summarizeBy: sum
+		sourceColumn: tt_receita_comercializacao
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qtd_receita_comercializacao
+		dataType: double
+		formatString: 0
+		lineageTag: 326a140d-9d38-4131-993b-625afc45c8c1
+		summarizeBy: sum
+		sourceColumn: qtd_receita_comercializacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column pc_receita_comercializacao
+		dataType: double
+		lineageTag: 6ddc6739-5c23-4a1c-8830-06f3c5dc3ffe
+		summarizeBy: sum
+		sourceColumn: pc_receita_comercializacao
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_receita_investimento
+		dataType: double
+		lineageTag: 94887830-33f0-48b4-9eef-f4064961dfcc
+		summarizeBy: sum
+		sourceColumn: tt_receita_investimento
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qtd_receita_investimento
+		dataType: double
+		formatString: 0
+		lineageTag: 99f80e90-2fc4-4215-815a-34ad11a51d79
+		summarizeBy: sum
+		sourceColumn: qtd_receita_investimento
+
+		annotation SummarizationSetBy = Automatic
+
+	column pc_receita_investimento
+		dataType: double
+		lineageTag: 2ae02291-ae5a-46f3-88e5-c177fb5c44de
+		summarizeBy: sum
+		sourceColumn: pc_receita_investimento
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column totalDoacaoBensMoveisImoveis
+		dataType: double
+		lineageTag: 1274ad37-84b3-4f8a-af06-713c2a5808c8
+		summarizeBy: sum
+		sourceColumn: totalDoacaoBensMoveisImoveis
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qtDoacaoBensMoveisImoveis
+		dataType: double
+		formatString: 0
+		lineageTag: 7529f090-b8fc-46f2-a694-3203afe0ccbf
+		summarizeBy: sum
+		sourceColumn: qtDoacaoBensMoveisImoveis
+
+		annotation SummarizationSetBy = Automatic
+
+	column percentualDoacaoBensMoveisImoveis
+		dataType: double
+		lineageTag: 7335d067-a735-4ece-923e-00aa132a057a
+		summarizeBy: sum
+		sourceColumn: percentualDoacaoBensMoveisImoveis
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column graf_qtd_receita
+		dataType: double
+		formatString: 0
+		lineageTag: 40e03c6a-ee1f-4ee5-ae66-1b56a6ca3e7f
+		summarizeBy: sum
+		sourceColumn: graf_qtd_receita
+
+		annotation SummarizationSetBy = Automatic
+
+	column graf_tt_receita
+		dataType: double
+		lineageTag: 0df6a16f-7030-46bd-9801-aef0eb57bc3d
+		summarizeBy: sum
+		sourceColumn: graf_tt_receita
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column graf_qtd_receita_fundo_partidario
+		dataType: double
+		formatString: 0
+		lineageTag: 73ea5bbe-8fb6-404c-8520-8fecad8c68cd
+		summarizeBy: sum
+		sourceColumn: graf_qtd_receita_fundo_partidario
+
+		annotation SummarizationSetBy = Automatic
+
+	column graf_tt_receita_fundo_partidario
+		dataType: double
+		lineageTag: bc169694-cf7f-4320-a394-1f3e1976c29b
+		summarizeBy: sum
+		sourceColumn: graf_tt_receita_fundo_partidario
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column graf_pc_receita_fundo_partidario
+		dataType: double
+		lineageTag: 07f42d9b-f2b9-4e8b-a0de-4c9905543a81
+		summarizeBy: sum
+		sourceColumn: graf_pc_receita_fundo_partidario
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column graf_qtd_receita_outros
+		dataType: double
+		formatString: 0
+		lineageTag: bad4a7b6-b85b-4a99-8872-f48786353f0d
+		summarizeBy: sum
+		sourceColumn: graf_qtd_receita_outros
+
+		annotation SummarizationSetBy = Automatic
+
+	column graf_tt_receita_outros
+		dataType: double
+		lineageTag: aea969f7-3305-4fb1-94ae-9c6bd9ca88fc
+		summarizeBy: sum
+		sourceColumn: graf_tt_receita_outros
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column graf_pc_receita_outros
+		dataType: double
+		lineageTag: 1faa7289-9ba4-4920-b9eb-21d482085b0b
+		summarizeBy: sum
+		sourceColumn: graf_pc_receita_outros
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column graf_qtd_receita_fefc
+		dataType: double
+		formatString: 0
+		lineageTag: 99ae7bc5-2819-465f-a6c8-5b99a711e951
+		summarizeBy: sum
+		sourceColumn: graf_qtd_receita_fefc
+
+		annotation SummarizationSetBy = Automatic
+
+	column graf_tt_receita_fefc
+		dataType: double
+		lineageTag: 71b1a90d-4176-462a-8cf6-7a8c6b269b17
+		summarizeBy: sum
+		sourceColumn: graf_tt_receita_fefc
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column graf_pc_receita_fefc
+		dataType: double
+		lineageTag: 837e4160-2493-4088-a024-6af77b61b55c
+		summarizeBy: sum
+		sourceColumn: graf_pc_receita_fefc
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column totalFinanceiroComRoni
+		dataType: double
+		lineageTag: 4a070e67-57f9-4682-807b-25f13dbcd25a
+		summarizeBy: sum
+		sourceColumn: totalFinanceiroComRoni
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column limite_gastos_1t
+		dataType: double
+		lineageTag: 2d3bfe43-aa57-4d90-aff4-8e34506fc10f
+		summarizeBy: sum
+		sourceColumn: limite_gastos_1t
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column limite_gastos_2t
+		dataType: double
+		lineageTag: 900e82fe-6313-42e5-9e5d-4391d4d94394
+		summarizeBy: sum
+		sourceColumn: limite_gastos_2t
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_limite_gastos
+		dataType: double
+		lineageTag: e694ed06-3052-4e68-9c03-746b781d1121
+		summarizeBy: sum
+		sourceColumn: tt_limite_gastos
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_despesas_contratadas
+		dataType: double
+		lineageTag: 0444eb78-1b03-45bf-9a1b-a2914e52b551
+		summarizeBy: sum
+		sourceColumn: tt_despesas_contratadas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_despesas_pagas
+		dataType: double
+		lineageTag: 0a9b8858-d4ac-483a-9f0f-98c7a781aae2
+		summarizeBy: sum
+		sourceColumn: tt_despesas_pagas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_despesas_doacao_candidato_partido
+		dataType: double
+		lineageTag: 435c4a24-84f7-4fb1-ba25-4920ff1f60f9
+		summarizeBy: sum
+		sourceColumn: tt_despesas_doacao_candidato_partido
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_despesas_fundo_partidario
+		dataType: double
+		lineageTag: d78fcfff-41ef-4322-92ca-140e2d5d4a89
+		summarizeBy: sum
+		sourceColumn: tt_despesas_fundo_partidario
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_despesas_fefc
+		dataType: double
+		lineageTag: e9f6672f-f0cf-40a7-b883-0127befa85ac
+		summarizeBy: sum
+		sourceColumn: tt_despesas_fefc
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_despesas_outros
+		dataType: double
+		lineageTag: b334f530-8a53-4fd0-bd5b-15397f75e19a
+		summarizeBy: sum
+		sourceColumn: tt_despesas_outros
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_despesas_financeiras
+		dataType: double
+		lineageTag: cd89439d-481c-441e-ba7f-46933a464753
+		summarizeBy: sum
+		sourceColumn: tt_despesas_financeiras
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tt_despesas_estimaveis
+		dataType: double
+		lineageTag: 461d4a51-7f70-46c3-9160-e14800399007
+		summarizeBy: sum
+		sourceColumn: tt_despesas_estimaveis
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column haveExtratos
+		dataType: int64
+		formatString: 0
+		lineageTag: 3204661d-deb0-4bfc-bdf2-53960050c71e
+		summarizeBy: sum
+		sourceColumn: haveExtratos
+
+		annotation SummarizationSetBy = Automatic
+
+	column haveNfes
+		dataType: int64
+		formatString: 0
+		lineageTag: 5ef32196-1d73-4e5b-9574-6baec6eb13de
+		summarizeBy: sum
+		sourceColumn: haveNfes
+
+		annotation SummarizationSetBy = Automatic
+
+	column receitaIndividual
+		dataType: double
+		lineageTag: 0be9f873-5a7f-461c-8b46-b99c95c653aa
+		summarizeBy: sum
+		sourceColumn: receitaIndividual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dividaCampanha
+		dataType: double
+		lineageTag: a92a0d36-7e5b-4d91-98e6-7602df23c5c5
+		summarizeBy: sum
+		sourceColumn: dividaCampanha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sobraFinanceira
+		dataType: double
+		lineageTag: 549643e7-fbd2-47a8-b083-3c7a8e955688
+		summarizeBy: sum
+		sourceColumn: sobraFinanceira
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sobraFinanceiraFP
+		dataType: double
+		lineageTag: ea6796cc-f2a3-4cb3-9880-8a3db09a4628
+		summarizeBy: sum
+		sourceColumn: sobraFinanceiraFP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sobraFinanceiraOR
+		dataType: double
+		lineageTag: 615a5d49-7d5b-424f-9587-7b8f3fe0e2e5
+		summarizeBy: sum
+		sourceColumn: sobraFinanceiraOR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sobraFinanceiraFEFC
+		dataType: double
+		lineageTag: f0f1ccd5-ad51-4632-ad99-f065d53c535e
+		summarizeBy: sum
+		sourceColumn: sobraFinanceiraFEFC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sobraEstimavel
+		dataType: double
+		lineageTag: 2aca6bed-d1e2-4836-be42-a67b72123654
+		summarizeBy: sum
+		sourceColumn: sobraEstimavel
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition f_prestacao_contas = m
+		mode: import
+		queryGroup: 'Tabelas Fato'
+		source =
+				let
+				    Arquivo = CaminhoDados & "\f_prestacao_contas.parquet",
+				    Fonte = Parquet.Document(File.Contents(Arquivo))
+				in
+				    Fonte
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

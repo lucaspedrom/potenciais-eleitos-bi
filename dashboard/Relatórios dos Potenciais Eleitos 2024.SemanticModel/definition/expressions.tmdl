@@ -1,0 +1,8 @@
+expression CaminhoDados = "D:\Projetos\potenciais_eleitos_bi\data\parquet" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 0e98f547-b27c-4e3d-ad96-8c6cdc7f38bc
+	queryGroup: Parâmetros
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Text
+

@@ -1,0 +1,45 @@
+table f_partido_distribuicao_candidato_2022
+	lineageTag: bfdf46ab-562a-49bf-950e-0b64af1bed73
+
+	column sqcand
+		dataType: int64
+		formatString: 0
+		lineageTag: b45f2bfc-597e-48aa-9d8c-6d22c56f0f11
+		summarizeBy: none
+		sourceColumn: sqcand
+
+		annotation SummarizationSetBy = Automatic
+
+	column sigla
+		dataType: string
+		lineageTag: fed1a897-5d12-452b-8b13-44d1076317db
+		summarizeBy: none
+		sourceColumn: sigla
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor
+		dataType: double
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 0a47887a-b6ce-4f35-a414-e7d814297861
+		summarizeBy: sum
+		sourceColumn: valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	partition f_partido_distribuicao_candidato_2022 = m
+		mode: import
+		queryGroup: 'Tabelas Fato'
+		source =
+				let
+				    Arquivo = CaminhoDados & "\f_partido_distribuicao_candidato_2022.parquet",
+				    Fonte = Parquet.Document(File.Contents(Arquivo))
+				in
+				    Fonte
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

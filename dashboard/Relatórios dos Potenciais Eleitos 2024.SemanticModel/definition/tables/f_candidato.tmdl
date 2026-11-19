@@ -1,0 +1,166 @@
+table f_candidato
+	lineageTag: ed0052c3-9ce7-47f3-a025-50227daf78be
+
+	column sg_uf
+		dataType: string
+		lineageTag: 377bf7fd-b73d-4176-ad76-4e154fef130f
+		summarizeBy: none
+		sourceColumn: sg_uf
+
+		annotation SummarizationSetBy = Automatic
+
+	column nm_municipio
+		dataType: string
+		lineageTag: b8ece096-efaa-444b-bf1b-66bddc787b90
+		summarizeBy: none
+		sourceColumn: nm_municipio
+
+		annotation SummarizationSetBy = Automatic
+
+	column ds_cargo
+		dataType: string
+		lineageTag: e7662c30-1212-4315-a498-a93a4a46b2af
+		summarizeBy: none
+		sourceColumn: ds_cargo
+
+		annotation SummarizationSetBy = Automatic
+
+	column nr_candidato
+		dataType: int64
+		formatString: 0
+		lineageTag: cc7d5c8f-a146-4211-b4bc-d5ba4f9fbcba
+		summarizeBy: sum
+		sourceColumn: nr_candidato
+
+		annotation SummarizationSetBy = Automatic
+
+	column nm_candidato
+		dataType: string
+		lineageTag: c16cb88a-181e-4e59-9f6d-27c79bc120f1
+		summarizeBy: none
+		sourceColumn: nm_candidato
+
+		annotation SummarizationSetBy = Automatic
+
+	column nm_urna_candidato
+		dataType: string
+		lineageTag: cf63c2cb-efea-4c9f-a793-db101f92df90
+		summarizeBy: none
+		sourceColumn: nm_urna_candidato
+
+		annotation SummarizationSetBy = Automatic
+
+	column sg_partido
+		dataType: string
+		lineageTag: 51011907-2023-4430-908b-55ba7b9aa749
+		summarizeBy: none
+		sourceColumn: sg_partido
+
+		annotation SummarizationSetBy = Automatic
+
+	column ds_composicao_coligacao
+		dataType: string
+		lineageTag: e515a977-e413-45c5-abae-f567aa75270f
+		summarizeBy: none
+		sourceColumn: ds_composicao_coligacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column sg_ue
+		dataType: int64
+		formatString: 0
+		lineageTag: 6c2c93bf-deec-4155-aff1-c0132c01c174
+		summarizeBy: none
+		sourceColumn: sg_ue
+
+		annotation SummarizationSetBy = Automatic
+
+	column sq_candidato
+		dataType: int64
+		formatString: 0
+		lineageTag: d69ee73b-bd38-417b-8781-e843d92c866b
+		summarizeBy: none
+		sourceColumn: sq_candidato
+
+		annotation SummarizationSetBy = Automatic
+
+	column nm_regiao
+		dataType: string
+		lineageTag: a3a314a1-607a-4d2b-bf67-7babc1dc3f37
+		summarizeBy: none
+		sourceColumn: nm_regiao
+
+		annotation SummarizationSetBy = Automatic
+
+	column titulo_eleitor
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d97339c-8c36-4f60-9b8d-632444a0b56f
+		summarizeBy: sum
+		sourceColumn: titulo_eleitor
+
+		annotation SummarizationSetBy = Automatic
+
+	column tt_votos_definitivos
+		dataType: double
+		formatString: #,0
+		lineageTag: 3084072b-8346-4e80-a219-63f545cfac80
+		summarizeBy: sum
+		sourceColumn: tt_votos_definitivos
+
+		annotation SummarizationSetBy = Automatic
+
+	column sit_eleicao
+		dataType: string
+		lineageTag: 0b34388d-0954-480a-b335-a77f9a027806
+		summarizeBy: none
+		sourceColumn: sit_eleicao
+
+		annotation SummarizationSetBy = Automatic
+
+	column categoria_candidatos
+		dataType: string
+		lineageTag: 354bca4c-8c2a-4f0c-ae7e-c763a0205f84
+		summarizeBy: none
+		sourceColumn: categoria_candidatos
+
+		annotation SummarizationSetBy = Automatic
+
+	column investimento
+		dataType: string
+		lineageTag: 961dc430-8596-41c4-b1e1-22e504e69227
+		summarizeBy: none
+		sourceColumn: investimento
+
+		annotation SummarizationSetBy = Automatic
+
+	column fase
+		dataType: string
+		lineageTag: 057b82b8-6d77-4c12-90c1-ec08ea0be8bc
+		summarizeBy: none
+		sourceColumn: fase
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cargo 2022'
+		dataType: string
+		lineageTag: 911e79e1-b2f7-4afd-b46b-377bf4c86d8a
+		summarizeBy: none
+		sourceColumn: Cargo 2022
+
+		annotation SummarizationSetBy = Automatic
+
+	partition f_candidato = m
+		mode: import
+		queryGroup: 'Tabelas Fato'
+		source =
+				let
+				    Arquivo = CaminhoDados & "\f_candidato.parquet",
+				    Fonte = Parquet.Document(File.Contents(Arquivo))
+				in
+				    Fonte
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

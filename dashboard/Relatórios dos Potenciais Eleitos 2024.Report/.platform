@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Relatórios dos Potenciais Eleitos 2024"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "57a8089c-e49c-44cd-acba-2f804b9657e0"
+  }
+}

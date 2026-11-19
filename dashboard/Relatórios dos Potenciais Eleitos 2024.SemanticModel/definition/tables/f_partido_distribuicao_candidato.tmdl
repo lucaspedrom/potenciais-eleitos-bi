@@ -1,0 +1,54 @@
+table f_partido_distribuicao_candidato
+	lineageTag: fa8daecf-e128-4e4b-a25e-c978753965df
+
+	column sqcand
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b85e6d8-cc2b-444c-8dd6-207c03b643b9
+		summarizeBy: none
+		sourceColumn: sqcand
+
+		annotation SummarizationSetBy = Automatic
+
+	column sigla
+		dataType: string
+		lineageTag: ef271db5-11e7-4afd-b5b0-199f04044208
+		summarizeBy: none
+		sourceColumn: sigla
+
+		annotation SummarizationSetBy = Automatic
+
+	column municipio_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a517271-13ad-4482-84f5-c8ebe55bc23a
+		summarizeBy: sum
+		sourceColumn: municipio_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor
+		dataType: double
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 8e3a766e-7e5e-4928-890e-7418f0c8481f
+		summarizeBy: sum
+		sourceColumn: valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	partition f_partido_distribuicao_candidato = m
+		mode: import
+		queryGroup: 'Tabelas Fato'
+		source =
+				let
+				    Arquivo = CaminhoDados & "\f_partido_distribuicao_candidato.parquet",
+				    Fonte = Parquet.Document(File.Contents(Arquivo))
+				in
+				    Fonte
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
